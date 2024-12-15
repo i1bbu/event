@@ -1,0 +1,30 @@
+import datetime
+print("Event checker")
+eventname = input("What is the name of the event: ").title()
+date = int(input("Day: "))
+month = int(input("Month: "))
+year = int(input("Year: "))
+todaysdate = datetime.date.today()
+eventdate = datetime.date(day = date, month = month, year = year)
+daysmissed = str(todaysdate - eventdate)
+def daysmissed2():
+    for i in daysmissed:
+        if i == ",":
+            break
+        else:
+            print(i, end = "")      
+def daysin():
+    daysin = str(eventdate - todaysdate)
+    for i in daysin:
+        if i == ",":
+            break
+        else:
+            print(i, end = "")
+if todaysdate < eventdate:
+    print(f"{eventname} is in ",end = "")
+    daysin()
+elif todaysdate > eventdate:
+    print(f"You missed it by ", end="")
+    daysmissed2()
+else:
+    print(f"{eventname} is today!")
